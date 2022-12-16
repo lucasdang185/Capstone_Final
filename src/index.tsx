@@ -1,19 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./assets/scss/style.scss";
+
+// cau hinh react router dom
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import HomeTeamplate from "./templates/HomeTeamplate";
+import Home from "./pages/home/Home";
+import Detail from "./pages/detail/Detail";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
+
+//cau hionh redux
+
+import { Provider } from "react-redux";
+import { store } from "./redux/configStore";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path='' element={<HomeTeamplate />}>
+          <Route index element={<Home />}></Route>
+          <Route path='login' element={<Login />}></Route>
+          <Route path='home' element={<Home />}></Route>
+          
+          <Route path='register' element={<Register />}></Route>
+          <Route path='detail'>
+            <Route path="id" element={<Detail />}></Route>
+          </Route>
+          <Route path='*' element={<Navigate to="" />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
