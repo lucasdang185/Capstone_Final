@@ -3,7 +3,7 @@ import { type } from '@testing-library/user-event/dist/type';
 
 export const store = configureStore({
     reducer:{
-        state: (state=1)=>{
+        state1: (state=1)=>{
             return state;
         }
     }
