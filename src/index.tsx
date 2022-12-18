@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/scss/style.scss";
-
 // cau hinh react router dom
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import HomeTeamplate from "./templates/HomeTeamplate";
@@ -9,7 +8,6 @@ import Home from "./pages/home/Home";
 import Detail from "./pages/detail/Detail";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
-
 
 
 //cau hionh redux
