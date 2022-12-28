@@ -1,0 +1,45 @@
+@import '../themes/variable';
+
+.register{
+    background-image: url('https://gstatic.gvn360.com/2021/09/Hoc-online_-24-7-scaled.jpg');
+    background-position: center;
+    width: 100%;
+    height: 1200px;
+    background-size: cover;
+    .container{ 
+        // margin-top: 30px;
+        img{
+            margin-top: 40px;
+            margin-left: 552px;
+            width: 200px;
+            border-radius: 10px;
+            // display: none;
+        }
+        .form{
+            margin-top: 20px;
+            border-radius: 7px;
+            width: 500px;
+            // height: 650px;
+            margin-left: 400px;
+            background-color: #fff;
+            h2{
+                padding-top: 20px;
+                margin-left: 20px;
+            }
+            .form-body{
+                padding: 20px;
+                p{
+                    @include text($text-xl,$text-regular, $text-c1-dark)
+                }
+            }
+            .form-footer{
+               padding: 20px;
+                width: 100%;
+                button{
+                    width: 100%;
+                    
+                }
+            }
+        }
+    }
+}
