@@ -24,6 +24,7 @@ const dispatch:DispatchType=useDispatch()
   },[])
   return (
     <div>
+     
        <div className="slider">
     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
       <div className="carousel-inner">
@@ -41,6 +42,9 @@ const dispatch:DispatchType=useDispatch()
                 <button>Xem khóa học</button>
                 <button>Tư vấn học</button>
               </div>
+            </div>
+            <div className='overlay'>
+
             </div>
           </div>
         </div>
@@ -94,6 +98,21 @@ const dispatch:DispatchType=useDispatch()
       </button>
     </div>
   </div>
+  <div className='introduce container'>
+        <div className='row '>
+          <div className='intro-l'>
+            <h2>
+            Đào tạo nghề lập trình chuyên sâu từ ZERO
+            </h2>
+            <p>CyberSoft khai thác nhu cầu tuyển dụng lập trình, kết nối việc làm tới doanh nghiệp và tích hợp các dự án với công nghệ mới nhất vào phương pháp đào tạo tích cực cho các học viên học xong có việc làm ngay. Chương trình giảng dạy được biên soạn may đo dành riêng cho các bạn Lập trình từ trái ngành hoặc đã có kiến thức theo cường độ cao, luôn được tinh chỉnh và tối ưu hóa theo thời gian bởi các thành viên sáng lập và giảng viên dày kinh nghiệm.
+</p>
+          <button className='btn btn-success'>Danh sách khóa học</button>
+          </div>
+          <div className='intro-r'>
+            <img src="./img/introduce.jpg" alt="introduce" />
+          </div>
+        </div>
+      </div>
   <div className='container'>
     <h1>Khóa học mới nhất</h1>
     <Cards/>
