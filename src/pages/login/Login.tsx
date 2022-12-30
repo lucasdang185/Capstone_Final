@@ -16,6 +16,7 @@ type Props = {}
 
 export default function Login({}: Props) {
   const {arrLogin}=useSelector((state:RootState)=>state.userReducer)
+  // console.log(arrLogin)
   const dispatch:DispatchType=useDispatch();
   const frm = useFormik<userLoginModel>({
     initialValues: {

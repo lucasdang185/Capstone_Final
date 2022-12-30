@@ -8,6 +8,7 @@ import Home from "./pages/home/Home";
 import Detail from "./pages/detail/Detail";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
+import CourseList from "./pages/courseList/CourseList";
 
 
 //cau hionh redux
@@ -32,6 +33,7 @@ root.render(
             <Route path="id" element={<Detail />}></Route>
           </Route>
           <Route path='*' element={<Navigate to="" />}></Route>
+          <Route path="courseList" element={<CourseList/>}></Route>
         </Route>
         <Route path="register" element={<Register />}></Route>
         <Route path="login" element={<Login />}></Route>

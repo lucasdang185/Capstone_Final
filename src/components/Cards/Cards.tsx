@@ -16,13 +16,12 @@ export default function Cards({}: Props) {
           <div className="col-3" key={index}>
             <div className="card">
               <img src={course.hinhAnh} alt="" />
-
               <div className="card-body">
                 <h5>{course.tenKhoaHoc}</h5>
                 <i className="fa-solid fa-star"></i>
               </div>
-              <NavLink to={"./register"}>
-                <button>Đăng ký</button>
+              <NavLink to={"/detail"}>
+                <button>Xem chi tiết</button>
               </NavLink>
             </div>
           </div>

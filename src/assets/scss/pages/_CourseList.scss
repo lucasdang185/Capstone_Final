@@ -1,0 +1,40 @@
+@import '../themes/variable';
+
+.courseList{
+    .carousel{
+    background-image: url('../../img/IT.webp');
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    }
+    .menu{
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        .item{
+            text-align: center;
+            // color: #000;
+            background-color: #fff;
+            @include text($text-xl,$text-medium,$text-c1-dark);
+            margin: 0 30px;
+            width: 160px;
+            // line-height: 150px;
+            // line-height: 100%;
+            padding-top:15px ;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid rgb(228, 159, 31) ;
+            &:hover{
+                background-color: rgb(218, 148, 17);
+                color: #fff;
+                transition: all 0.3s;
+            }
+        }
+    }
+    .container{
+        h2{
+            @include text($text-5xl,$text-medium,#000)
+        }
+    }
+}

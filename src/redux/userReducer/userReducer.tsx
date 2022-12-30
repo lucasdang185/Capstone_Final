@@ -32,7 +32,7 @@ export type UserState = {
 
 const initialState: UserState = {
   arrRegister: [],
-  arrLogin:settings.getStorageJson(USER_LOGIN) ? settings.getStorageJson(USER_LOGIN):[]
+  arrLogin:settings.getStorageJson(USER_LOGIN) ? settings.getStorageJson(USER_LOGIN):{}
 };
 
 const userReducer = createSlice({

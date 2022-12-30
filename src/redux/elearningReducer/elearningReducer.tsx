@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { type } from '@testing-library/user-event/dist/type';
 import axios from 'axios';
+import { danhMucModel } from '../../components/Header';
+// import { danhMucModel } from '../../components/Header';
 import { http } from '../../util/cofig';
 import { DispatchType } from '../configStore';
-
+//renden trang home
 export type CourseModel={
     maKhoaHoc:      string;
     biDanh:         string;
@@ -28,34 +30,39 @@ export type NguoiTAO ={
     tenLoaiNguoiDung: string;
 }
 
-export type elearningState={
-    arrCourse:CourseModel[];
+
+//trang danh muc khoa hoc
+export interface DanhMucKhoaHocResult{
+    tenDanhMuc:String;
+    maDanhMuc:string;
 }
 
+export type khoaHocResult ={
+  maKhoaHoc:      string;
+  biDanh:         string;
+  tenKhoaHoc:     string;
+  moTa:           string;
+  luotXem:        number;
+  hinhAnh:        string;
+  maNhom:         string;
+  ngayTao:        string;
+  soLuongHocVien: number;
+  nguoiTao:       NguoiTAO;
+  danhMucKhoaHoc: DanhMucKhoaHoc;
+}
+
+
+export type elearningState={
+    arrCourse:CourseModel[],
+    arrCourseList:DanhMucKhoaHocResult[],
+    arrKhoaHoc:khoaHocResult[]
+}
+
+
 const initialState:elearningState = {
-    arrCourse:[
-        {
-            "maKhoaHoc": "123",
-            "biDanh": "node-js",
-            "tenKhoaHoc": "Node js",
-            "moTa": "mo ta tu duy lap trinh",
-            "luotXem": 100,
-            "hinhAnh": "https://elearningnew.cybersoft.edu.vn/hinhanh/node-js_gp01.png",
-            "maNhom": "gp01",
-            "ngayTao": "05/12/2022",
-            "soLuongHocVien": 0,
-            "nguoiTao": {
-              "taiKhoan": "1234561",
-              "hoTen": "Bá Thục",
-              "maLoaiNguoiDung": "GV",
-              "tenLoaiNguoiDung": "Giáo vụ"
-            },
-            "danhMucKhoaHoc": {
-              "maDanhMucKhoahoc": "Design",
-              "tenDanhMucKhoaHoc": "Thiết kế Web"
-            }
-          }
-    ]
+    arrCourse:[],
+    arrCourseList:[],
+    arrKhoaHoc:[]
 }
 
 const elearningReducer = createSlice({
@@ -64,11 +71,19 @@ const elearningReducer = createSlice({
   reducers: {
     getCourseAction:(state:elearningState,action:PayloadAction<CourseModel[]>)=>{
         state.arrCourse=action.payload;
+    },
+    getCourseListAction:(state:elearningState,action:PayloadAction<DanhMucKhoaHocResult[]>)=>{
+      state.arrCourseList=action.payload;
+      // console.log(state.arrCourseList.maDanhMuc)
+    },
+    getKhoaHocAction:(state:elearningState,action:PayloadAction<khoaHocResult[]>)=>{
+      state.arrKhoaHoc=action.payload
+      // console.log(state.arrKhoaHoc)
     }
   }
 });
 
-export const {getCourseAction} = elearningReducer.actions
+export const {getCourseAction,getCourseListAction,getKhoaHocAction} = elearningReducer.actions
 
 export default elearningReducer.reducer
 
@@ -82,4 +97,35 @@ export const getCourseApi=()=>{
         const action:PayloadAction<CourseModel[]>=getCourseAction(content)
         dispatch(action);
     }
+}
+
+export const getCourseListApi=(tenDanhMuc:string):any=>{
+    return async (dispatch:DispatchType)=>{
+      try {
+        const result=await http.get('/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc?tenDanhMuc='+tenDanhMuc);
+        if(result){
+          const content:DanhMucKhoaHocResult[]=result.data;
+          const action:PayloadAction< DanhMucKhoaHocResult[]>=getCourseListAction(content);
+          dispatch(action);
+        }
+      }
+      catch (error) {
+       console.log(error) 
+      }
+    }
+}
+//danh muc
+export const getKhoaHocApi=(maDanhMuc:string):any=>{
+  return async (dispatch:DispatchType)=>{
+    try {
+      const result=await http.get('/api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc='+maDanhMuc+'&MaNhom=GP01');
+      if(result&& result!==undefined){
+      const content:khoaHocResult[]=result.data;
+      const action:PayloadAction<khoaHocResult[]>=getKhoaHocAction(content)
+      dispatch(action)
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
