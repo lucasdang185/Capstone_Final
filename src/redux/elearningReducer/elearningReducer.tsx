@@ -30,6 +30,22 @@ export type NguoiTAO ={
     tenLoaiNguoiDung: string;
 }
 
+//detail
+
+export type DetailResult={
+  maKhoaHoc:      string;
+  biDanh:         string;
+  tenKhoaHoc:     string;
+  moTa:           string;
+  luotXem:        number;
+  hinhAnh:        string;
+  maNhom:         string;
+  ngayTao:        string;
+  soLuongHocVien: number;
+  nguoiTao:       NguoiTAO;
+  danhMucKhoaHoc: DanhMucKhoaHoc;
+}
+
 
 //trang danh muc khoa hoc
 export interface DanhMucKhoaHocResult{
@@ -55,14 +71,37 @@ export type khoaHocResult ={
 export type elearningState={
     arrCourse:CourseModel[],
     arrCourseList:DanhMucKhoaHocResult[],
-    arrKhoaHoc:khoaHocResult[]
+    arrKhoaHoc:khoaHocResult[],
+    arrDetail:DetailResult
 }
 
 
 const initialState:elearningState = {
     arrCourse:[],
     arrCourseList:[],
-    arrKhoaHoc:[]
+    arrKhoaHoc:[],
+    arrDetail:{
+  maKhoaHoc:      '',
+  biDanh:         '',
+  tenKhoaHoc:     '',
+  moTa:           '',
+  luotXem:        1,
+  hinhAnh:        '',
+  maNhom:         '',
+  ngayTao:        '',
+  soLuongHocVien: 2,
+  nguoiTao:       {
+    taiKhoan:         '',
+    hoTen:            '',
+    maLoaiNguoiDung:  '',
+    tenLoaiNguoiDung: '',
+  },
+  danhMucKhoaHoc: {
+    maDanhMucKhoahoc:  '',
+    tenDanhMucKhoaHoc: ''
+  }
+    }
+
 }
 
 const elearningReducer = createSlice({
@@ -79,11 +118,15 @@ const elearningReducer = createSlice({
     getKhoaHocAction:(state:elearningState,action:PayloadAction<khoaHocResult[]>)=>{
       state.arrKhoaHoc=action.payload
       // console.log(state.arrKhoaHoc)
+    },
+    getDetailAction:(state:elearningState,action:PayloadAction<DetailResult>)=>{
+      state.arrDetail=action.payload
+      console.log(state.arrDetail)
     }
   }
 });
 
-export const {getCourseAction,getCourseListAction,getKhoaHocAction} = elearningReducer.actions
+export const {getCourseAction,getCourseListAction,getKhoaHocAction,getDetailAction} = elearningReducer.actions
 
 export default elearningReducer.reducer
 
@@ -124,6 +167,23 @@ export const getKhoaHocApi=(maDanhMuc:string):any=>{
       const action:PayloadAction<khoaHocResult[]>=getKhoaHocAction(content)
       dispatch(action)
       }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
+//detail
+
+export const getDetailApi=(maKhoaHoc:string|undefined):any=>{
+  return async (dispatch:DispatchType)=>{
+    try {
+      const  result=await http.get('/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc='+maKhoaHoc);
+    if(result){
+      const content:DetailResult=result.data;
+      const action:PayloadAction<DetailResult>=getDetailAction(content);
+      dispatch(action)
+    }
     } catch (error) {
       console.log(error)
     }

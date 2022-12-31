@@ -29,8 +29,8 @@ root.render(
         <Route path='' element={<HomeTeamplate />}>
           <Route index element={<Home />}></Route>
           <Route path='home' element={<Home />}></Route>
-          <Route path='detail'>
-            <Route path="id" element={<Detail />}></Route>
+          <Route path="detail">
+            <Route path=":id" element={<Detail/>}></Route>
           </Route>
           <Route path='*' element={<Navigate to="" />}></Route>
           <Route path="courseList" element={<CourseList/>}></Route>

@@ -20,7 +20,9 @@ const arrList=[
   {tenDanhMuc:'Lập trình Front end',maDanhMuc:'Frontend'},
   {tenDanhMuc:'Tư duy lập trình',maDanhMuc:'TuDuy'},
   {tenDanhMuc:'Web',maDanhMuc:'Design'},
-  {tenDanhMuc:'Lập trình di động',maDanhMuc:"DiDong"}
+  {tenDanhMuc:'Lập trình di động',maDanhMuc:"DiDong"},
+  {tenDanhMuc:'Full Stack',maDanhMuc:"FullStack"},
+
 ]
 
 export default function Header({}: Props) {

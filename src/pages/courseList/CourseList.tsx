@@ -28,9 +28,9 @@ export default function CourseList({}: Props) {
                 <h5>{course.tenKhoaHoc}</h5>  
                 <i className="fa-solid fa-star"></i>
               </div>
-              <NavLink to={"/detail"}>
-                <button>Xem chi tiết</button>
-              </NavLink>
+              <button className="btn" >
+                <NavLink to={`/detail/${course.maKhoaHoc}`}>Buy now</NavLink>
+              </button>
             </div>
           </div>
         );

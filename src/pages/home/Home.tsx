@@ -16,6 +16,8 @@ export default function Home({}: Props) {
     dispatch(action);
   };
 
+  
+
   const dispatch: DispatchType = useDispatch();
   useEffect(() => {
     getAllCrouse();

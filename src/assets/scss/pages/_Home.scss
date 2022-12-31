@@ -67,6 +67,7 @@
             font-style: normal;
             line-height: 24px;
             margin: 0 10px;
+         
             @include text($text-1xl, $text-light, $text-c1-dark);
             border-radius: 10px;
             transition: all 0.3s;
@@ -109,6 +110,13 @@
           font-style: normal;
           transition: all 0.3s;
           border-radius: 0 0 5px 5px;
+          a{
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color:#000;
+            height: 100%;
+          }
           @include text($text-1xl, $text-light, $text-c1-dark);
           &:hover {
             background-color: #1c56a8;
