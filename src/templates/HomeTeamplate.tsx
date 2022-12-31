@@ -12,7 +12,7 @@ export default function HomeTeamplate({}: Props) {
     <div className='content' >
         <Outlet />
     </div>
-    {/* <Footer/> */}
+    <Footer/>
     
     </>
   )

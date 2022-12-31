@@ -3,6 +3,7 @@
 
 .footer {
     margin-top: 150px;
+ 
   
     .container {
       position: relative;
@@ -12,10 +13,11 @@
         .footer-top {
           display: flex;
           flex-direction: row;
-          justify-content: end;
+          justify-content: space-between;
   
           .col {
             display: flex;
+            justify-content: center;
   
             .hr {
               height: 140px;
@@ -27,11 +29,12 @@
             .item {
               h4 {
                 font-weight: 600;
+                font-size: 26px;
               }
   
               p {
-                font-size: 16px;
-                font-weight: 500;
+                font-size: 18px;
+                font-weight: 400;
               }
   
               a {
@@ -64,7 +67,7 @@
               }
   
               p {
-                font-size: 16px;
+                font-size: 16spx;
                 font-weight: 500;
                 height: 100%;
               }
@@ -74,6 +77,7 @@
                 margin-top: -80px;
                 color: red;
                 text-decoration: none;
+        
               }
             }
           }

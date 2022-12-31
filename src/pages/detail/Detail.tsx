@@ -22,7 +22,7 @@ export default function Detail({}: Props) {
         <div className='detail-header'>
         {/* <h3>{arrDetail?.tenKhoaHoc}h</h3> */}
           <h3 style={{fontSize:'60px'}}>{arrDetail?.tenKhoaHoc}</h3>
-         <img src={arrDetail?.hinhAnh} alt=""  />
+         <img src={arrDetail?.hinhAnh} alt="..."  />
         </div>
         <div className='detail-body'>
        <div className='left '>
@@ -31,14 +31,14 @@ export default function Detail({}: Props) {
        </div>
        <div className='right'>
         <table className='table' style={{border:'2px solid'}}>
-          <thead>
+          <thead className='title-table'>
             <th>Giáo viên</th>
             <th>Lượt xem</th>
             <th>Số lượng học viên</th>
             <th>Mã nhóm</th>
           </thead>
-          <tbody>
-            <tr>
+          <tbody >
+            <tr className='body-table'>
               <td>{arrDetail.nguoiTao.hoTen}</td>
               <td>{arrDetail.luotXem}</td>
               <td>{arrDetail.soLuongHocVien}</td>
