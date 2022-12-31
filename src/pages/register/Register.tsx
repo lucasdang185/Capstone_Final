@@ -126,7 +126,7 @@ export default function Register({}: Props) {
         <div className='form-footer'>
           <button className='btn btn-success' onClick={()=>{
             frm.handleSubmit()
-          }}>Đăng nhập</button>
+          }}>Đăng ký</button>
         </div>
       </div>
     </form>
