@@ -77,11 +77,11 @@ export default function Register({}: Props) {
           {frm.errors.taiKhoan ? <p className='text-danger'>{frm.errors.taiKhoan}</p>:''}
           {/* <br /> */}
           <p>Password</p>
-          <input type="text" id='matKhau' placeholder='Input password' className='form-control' onChange={frm.handleChange} onBlur={frm.handleBlur}/>
+          <input type="password" id='matKhau' placeholder='Input password' className='form-control' onChange={frm.handleChange} onBlur={frm.handleBlur}/>
           {frm.errors.matKhau  ? <p className='text-danger'>{frm.errors.matKhau}</p>:''}
           {/* <br /> */}
           <p>Confirm Password</p>
-            <input type="text" id='xacNhanMatKhau' className='form-control' placeholder='Confirm password' onChange={frmConfirm.handleChange} onBlur={frmConfirm.handleBlur} />
+            <input type="password" id='xacNhanMatKhau' className='form-control' placeholder='Confirm password' onChange={frmConfirm.handleChange} onBlur={frmConfirm.handleBlur} />
              {frmConfirm.values.xacNhanMatKhau!==frm.values.matKhau ? <p className='text-danger'>{frmConfirm.errors.xacNhanMatKhau}</p>:''}
           {/* <br /> */}
           <p>Name</p>

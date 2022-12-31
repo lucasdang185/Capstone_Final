@@ -45,7 +45,7 @@ export default function Login({}: Props) {
           {frm.errors.taiKhoan ? <p className='text-danger'>{frm.errors.taiKhoan}</p>:''}
           <br />
           <p>Password</p>
-          <input type="text" id='matKhau' placeholder='Input password' className='form-control' onChange={frm.handleChange} onBlur={frm.handleBlur}/>
+          <input type="password" id='matKhau' placeholder='Input password' className='form-control' onChange={frm.handleChange} onBlur={frm.handleBlur}/>
           {frm.errors.matKhau  ? <p className='text-danger'>{frm.errors.matKhau}</p>:''}
         
         </div>
